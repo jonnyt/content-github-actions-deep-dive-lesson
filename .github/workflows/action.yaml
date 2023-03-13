@@ -34,12 +34,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create release
-        uses: ncipollo/create-release@v1
+        uses: ncipollo/release-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_number }}
-          release_name: Release from ${{ github.run_number }}
+          tag: ${{ github.run_number }}
+          name: Release from ${{ github.run_number }}
           body: New release for ${{ github.sha }}.  Release notes on documentation site.
           draft: false
           prerelease: false
+          
